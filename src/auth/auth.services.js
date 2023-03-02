@@ -19,14 +19,14 @@ const postLogin = (req, res) => {
                 response.success({
                     res,
                     status:200,
-                    message: 'Correct Credentials!',
+                    message: 'Correct Credentials! :D',
                     data: token
                 })
             } else {
                 response.error({
                     res,
                     status: 401,
-                    message: 'Invalid Credentials'
+                    message: 'Invalid Credentials O_X'
                 })
             }
         })
@@ -35,7 +35,7 @@ const postLogin = (req, res) => {
                 res,
                 status:400,
                 data: err,
-                message: 'Something Bad'
+                message: 'Something is Bad X_X'
             })
         })
 }

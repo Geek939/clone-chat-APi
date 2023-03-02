@@ -30,7 +30,6 @@ const findAllConversationsByUser = async (userId) => {
 
 const createConversation = async (conversationObj, userOwnerId, userGuestId) => {
 
-    //? Validacion por si el usuario invitado existe
     const userGuest = await Users.findOne({where: {id: userGuestId}})
 
     if(!userGuest){
@@ -44,7 +43,6 @@ const createConversation = async (conversationObj, userOwnerId, userGuestId) => 
         isGroup: conversationObj.isGroup
     })
 
-    //? Owner participant
     await Participants.create({
         id: uuid.v4(),
         userId: userOwnerId,
@@ -52,7 +50,6 @@ const createConversation = async (conversationObj, userOwnerId, userGuestId) => 
         isAdmin: true
     })
 
-    //? Guest participant
     await Participants.create({
         id: uuid.v4(),
         userId: userGuestId,
